@@ -1,0 +1,42 @@
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: 100px;
+    grid-template-areas: 
+    "a b c d e"
+    "f g c h h"
+    "i j c h h";
+    align-items: start;
+}
+    
+.div1 { grid-area: a; }
+.div2 { grid-area: b; }
+.div3 { grid-area: c; }
+.div4 { grid-area: d; }
+.div5 { grid-area: e; }
+.div6 { grid-area: f; }
+.div7 { grid-area: g; }
+.div8 { grid-area: h; }
+.div9 { grid-area: i; }
+.div10 { grid-area: j; }
+
+.parent div{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+.pink{
+    background-color: red;
+}
+
+.blue{
+    background-color: blue;
+}
+
+.yellow{
+    background-color: yellow;
+}
