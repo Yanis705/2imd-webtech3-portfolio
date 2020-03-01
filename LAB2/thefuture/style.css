@@ -1,0 +1,64 @@
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: 100px;
+    grid-template-areas: 
+    "a b c d e"
+    "f g c h h"
+    "i j c h h";
+    align-items: start;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+    
+.div1 { grid-area: a; }
+.div2 { grid-area: b; }
+.div3 { grid-area: c; }
+.div4 { grid-area: d; }
+.div5 { grid-area: e; }
+.div6 { grid-area: f; }
+.div7 { grid-area: g; }
+.div8 { grid-area: h; }
+.div9 { grid-area: i; }
+.div10 { grid-area: j; }
+
+.parent div{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+@media only screen and (max-width: 1100px) {
+    .parent {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+        "a b"
+        "c d"
+        "e f"
+        "g h"
+        "i j";
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .parent {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas: 
+        "a""b""c""d""e""f""g""h""i""j";
+    }
+}
+
+.pink{
+    background-color: #f5355c;
+}
+
+.blue{
+    background-color: #6af6f2;
+}
+
+.yellow{
+    background-color: #fffd38;
+}
