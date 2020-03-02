@@ -15,9 +15,7 @@ https://github.com/Yanis705/2imd-webtech3-portfolio/tree/master/LAB2
 
 ![screenshot of CSS Gridgarden](https://github.com/Yanis705/2imd-webtech3-portfolio/blob/master/LAB2/cssgridgarden.png)
 
-## Link to Future Grid
-https://codepen.io/Yanis705/pen/ExjXdEK
+### [Link to Future Grid](https://codepen.io/Yanis705/pen/ExjXdEK)
 
 
-## Link To Grid Ticket
-https://codepen.io/Yanis705/pen/OJVgBzE
+### [Link To Grid Ticket](https://codepen.io/Yanis705/pen/OJVgBzE)
