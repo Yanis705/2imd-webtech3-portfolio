@@ -37,6 +37,9 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
+    let notes = JSON.parse(localStorage.getItem("todos")) || [];
+    notes.push(this.title);
+    localStorage.setItem("todos", JSON.stringify(notes));
   }
   
   remove(){
@@ -56,13 +59,18 @@ class App {
     // pressing the enter key should also work
     this.btnAdd = document.querySelector("#btnAddNote");
     this.btnAdd.addEventListener("click", this.createNote.bind(this));
-    // this.loadNotesFromStorage();
+    this.loadNotesFromStorage();
   }
   
   loadNotesFromStorage() {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
+    let notes = JSON.parse(localStorage.getItem("todos")) || [];
+    notes.forEach(item => {
+      let note = new Note(item);
+      note.add();
+    });
   }
    
   createNote(e){
@@ -71,13 +79,13 @@ class App {
     let note = new Note(text);
     // HINT🤩
     note.add();
-    // note.add();
-    // note.saveToStorage();
-    // this.reset();
+    note.saveToStorage();
+    this.reset();
   }
   
   reset(){
-    // this function should reset the form 
+    // this function should reset the form
+    document.querySelector("#txtAddNote").value = ""; 
   }
   
 }
