@@ -21,7 +21,8 @@ class Note {
     
     // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
     newA.addEventListener('click', () => {
-      this.remove;
+      this.remove.bind(newNote);
+      this.remove();
     });
     
     return newNote;
@@ -45,15 +46,20 @@ class Note {
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
-    console.log(this);
+    //Remove todo from DOM
+    let notes = document.querySelector(".notes");
+    notes.removeChild(this.element);
+    //Remove item from localStorage
+    let todos = JSON.parse(localStorage.getItem("todos"));
+    let value = this.element.querySelector("p").innerHTML;
+    todos.splice(todos.indexOf(value),1);
+    localStorage.setItem("todos", JSON.stringify(todos));
   } 
 }
 
 
 class App {
   constructor() {
-    console.log("👊🏼 The Constructor!");
-  
     // HINT🤩
     // clicking the button should work
     // pressing the enter key should also work
