@@ -1,9 +1,27 @@
 class App{
     constructor() {
-        //this.getLocation();
-        this.getCoffee();
+        this.loadWeather();
         this.lat;
         this.lng;
+    }
+
+    loadWeather() {
+        let weather = JSON.parse(localStorage.getItem("weather"));
+        let lastUpdated = localStorage.getItem("lastUpdated");
+        //Check if there is weather data in localstorage and last update is longer then 30 minutes ago
+        if (weather && lastUpdated){
+            let currentTime = new Date();
+            let timeDifference = (currentTime.getTime() - lastUpdated)/1000/100;
+            if(timeDifference < 30){
+                console.log("Weather loaded form Localstorage");
+            } else {
+                this.getLocation();
+                console.log("Timedifference is bigger than 30, reloading weather!")
+            }
+        } else {
+            this.getLocation();
+            console.log("No weatherdata in localstorage, getting weather!")
+        }
     }
 
     getLocation() {
@@ -24,26 +42,17 @@ class App{
     }
 
     getWeather() {
-        url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a1e9614f4ea9a1201274fbb063f82e5b/${this.lat},${this.lng}?units=si`
+        let url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a1e9614f4ea9a1201274fbb063f82e5b/${this.lat},${this.lng}?units=si`
         fetch(url)
         .then(response => {
             return response.json();
         }).then(data => {
-            document.querySelector("#weather").innerHTML =
-                data.currently.summary;
+            localStorage.setItem("weather", JSON.stringify(data));
+            let today = new Date();
+            localStorage.setItem("lastUpdated", today.getTime());
+            console.log("Weather and lastUpdated saved in localStorage!")
         }).catch(err => {
             console.log(err);
-        });
-    }
-
-    getCoffee() {
-        let url = `https://cors-anywhere.herokuapp.com/https://coffee.alexflipnote.dev/random.json`
-        fetch(url)
-        .then(response => {
-            return response.json();
-        }).then(data => {
-            let weatherDiv = document.querySelector("#weather");
-            weatherDiv.style.backgroundImage = "url(" + data.file + ")";
         });
     }
 }
