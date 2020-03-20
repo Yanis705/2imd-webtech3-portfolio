@@ -22,6 +22,7 @@ class App{
             this.getLocation();
             console.log("No weatherdata in localstorage, getting weather!")
         }
+        this.displayWeather();
     }
 
     getLocation() {
@@ -42,7 +43,7 @@ class App{
     }
 
     getWeather() {
-        let url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a1e9614f4ea9a1201274fbb063f82e5b/${this.lat},${this.lng}?units=si`
+        let url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a1e9614f4ea9a1201274fbb063f82e5b/${this.lat},${this.lng}?units=si`;
         fetch(url)
         .then(response => {
             return response.json();
@@ -54,6 +55,19 @@ class App{
         }).catch(err => {
             console.log(err);
         });
+    }
+
+    displayWeather(){
+        let weather = JSON.parse(localStorage.getItem("weather"));
+        console.log(weather);
+        if (weather.currently.temperature > 15){
+            document.querySelector("#advertisement").style.backgroundImage = "url('img/summer.jpg')";
+            document.querySelector(".responseMessage").innerHTML = "Take a swim in our outdoor pool!";
+        } else {
+            document.querySelector("#advertisement").style.backgroundImage = "url('img/winter.jpg')";
+            document.querySelector(".responseMessage").innerHTML = "Take a swim in our indoor pool!";
+        }
+        document.querySelector(".weatherInfo").innerHTML = Math.round(weather.currently.temperature) + " °C and " + weather.currently.summary + " near you";
     }
 }
 
