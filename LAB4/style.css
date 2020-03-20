@@ -1,0 +1,10 @@
+#weather{
+    height: 600px;
+    width: 300px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.test{
+    max-width: 300px;
+}

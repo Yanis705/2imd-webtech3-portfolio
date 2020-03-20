@@ -1,6 +1,7 @@
 class App{
     constructor() {
-        this.getLocation();
+        //this.getLocation();
+        this.getCoffee();
         this.lat;
         this.lng;
     }
@@ -23,7 +24,7 @@ class App{
     }
 
     getWeather() {
-        let url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a1e9614f4ea9a1201274fbb063f82e5b/${this.lat},${this.lng}?units=si`
+        url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a1e9614f4ea9a1201274fbb063f82e5b/${this.lat},${this.lng}?units=si`
         fetch(url)
         .then(response => {
             return response.json();
@@ -32,6 +33,17 @@ class App{
                 data.currently.summary;
         }).catch(err => {
             console.log(err);
+        });
+    }
+
+    getCoffee() {
+        let url = `https://cors-anywhere.herokuapp.com/https://coffee.alexflipnote.dev/random.json`
+        fetch(url)
+        .then(response => {
+            return response.json();
+        }).then(data => {
+            let weatherDiv = document.querySelector("#weather");
+            weatherDiv.style.backgroundImage = "url(" + data.file + ")";
         });
     }
 }
