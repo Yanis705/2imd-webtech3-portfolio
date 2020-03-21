@@ -1,0 +1,22 @@
+*{
+    font-family: 'Baloo 2';
+}
+
+#advertisement{
+    height: 280px;
+    width: 336px;
+    text-align: center;
+    background-color: red;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.logo{
+    margin-bottom: 120px;
+}
+
+.responseMessage{
+    text-transform: uppercase;
+    font-size: 20px;
+}
