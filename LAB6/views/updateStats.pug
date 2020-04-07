@@ -1,5 +1,24 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to updatestats
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Document
+    link(rel='stylesheet', href='/stylesheets/update.css')
+  body
+    section
+      div
+        label(for='number') Amount of Corona cases ☣☣☣
+        input#number(type='text', name='number')
+      #select
+        label(for='country') Country
+        select#country(name='country')
+          option(value='Belgium', selected='selected') Belgium
+          option(value='France') France
+          option(value='Germany') Germany
+          option(value='Netherlands') Netherlands
+          option(value='Spain') Spain
+          option(value='Italy') Italy
+      a#submit(href='#') Update statistics
+    script(src='../primus/primus.js')
+    script(src='../public/javascripts/index.js')
