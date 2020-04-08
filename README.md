@@ -34,6 +34,8 @@ https://github.com/Yanis705/Lab5-NodeJS-Basics
 ### [Link To CodePen](https://codepen.io/Yanis705/pen/RwPvaBN)
 
 ## LAB 6
+![Lab6](https://github.com/Yanis705/2imd-webtech3-portfolio/blob/master/LAB6/Lab6.gif)
+
 https://github.com/Yanis705/Lab6-WebSockets
 ### [Link To Live App](https://lab6-yanis.herokuapp.com/)
 
