@@ -33,6 +33,10 @@ https://github.com/Yanis705/2imd-webtech3-portfolio/tree/master/LAB4
 https://github.com/Yanis705/Lab5-NodeJS-Basics
 ### [Link To CodePen](https://codepen.io/Yanis705/pen/RwPvaBN)
 
+## LAB 6
+https://github.com/Yanis705/Lab6-WebSockets
+### [Link To Live App](https://lab6-yanis.herokuapp.com/)
+
 ## MongoDb University
 
 ### [Link To Course Completion Confirmation](https://github.com/Yanis705/2imd-webtech3-portfolio/tree/master/MongoDb%20University)
